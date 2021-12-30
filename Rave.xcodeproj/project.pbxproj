@@ -74,6 +74,7 @@
 		CBF9096626B8514C008CB4F5 /* SinglePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9096526B8514C008CB4F5 /* SinglePostView.swift */; };
 		E761009E277E3B8100BABA5E /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E761009D277E3B8100BABA5E /* ReportManager.swift */; };
 		E76100A0277E3B9100BABA5E /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E761009F277E3B9100BABA5E /* CommentCellView.swift */; };
+		E76100A3277E3C3200BABA5E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76100A2277E3C3200BABA5E /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +140,7 @@
 		CBF9096526B8514C008CB4F5 /* SinglePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostView.swift; sourceTree = "<group>"; };
 		E761009D277E3B8100BABA5E /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
 		E761009F277E3B9100BABA5E /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
+		E76100A2277E3C3200BABA5E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 		CB96F1B1267BBC5300B001FF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E76100A1277E3C2000BABA5E /* Search */,
 				CB96F19E267BBBCE00B001FF /* ContentView.swift */,
 				CBF9094F26AF4DF2008CB4F5 /* Notifications */,
 				CBF31BC426AA2CF800F0199F /* Home */,
@@ -364,6 +367,14 @@
 			path = PersonProfile;
 			sourceTree = "<group>";
 		};
+		E76100A1277E3C2000BABA5E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E76100A2277E3C3200BABA5E /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -502,6 +513,7 @@
 				CBF9094626AF3A38008CB4F5 /* CommentsManager.swift in Sources */,
 				CBF9094C26AF472E008CB4F5 /* Notification.swift in Sources */,
 				CBF9093C26AF1603008CB4F5 /* LikesView.swift in Sources */,
+				E76100A3277E3C3200BABA5E /* SearchView.swift in Sources */,
 				CBF9093126ADC998008CB4F5 /* Date.swift in Sources */,
 				CBF9096626B8514C008CB4F5 /* SinglePostView.swift in Sources */,
 				CB96F1ED267D36F300B001FF /* Post.swift in Sources */,

@@ -32,17 +32,23 @@ struct TabsView: View {
                     }
                     .tag(1)
                 
+                SearchView()
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                    }
+                    .tag(2)
+                
                 NotificationsView(notificationsManager: notificationsManager, postManager: postManager, commentsManager: commentsManager)
                     .tabItem {
                         Image(systemName: "bell.fill")
                     }
-                    .tag(2)
+                    .tag(3)
                 
                 ProfileView(postManager: postManager, commentsManager: commentsManager)
                     .tabItem {
                         Image(systemName: "person.crop.circle.fill")
                     }
-                    .tag(3)
+                    .tag(4)
             }
             .accentColor(Color("BlueMedium"))
             
