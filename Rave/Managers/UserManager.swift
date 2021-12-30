@@ -70,6 +70,44 @@ class UserManager {
         })
     }
     
+    func fetchAllUsers(completion: @escaping(Result<[User], Error>) -> ()) {
+        var userList: [User] = []
+        db.collection(C_USERS).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion(.failure(err))
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    do {
+                        if let user = try document.data(as: User.self) {
+                            print("User should be appended to list")
+                            userList.append(user)
+                    }
+                    }
+                    catch {
+                        print("Error parsing user")
+                    }
+                }
+                completion(.success(userList))
+            }
+        }
+    }
+    
+//    func callFetchAll() -> [User] {
+//        print("")
+//        var userList: [User] = [];
+//        UserManager().fetchAllUsers() { result in
+//            switch result {
+//            case .success(let dbUsers):
+//                userList = dbUsers
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//    }
+    
     func fetchUserOnce(uid: String, completion: @escaping(Result<User, Error>) -> ()) {
         db.collection(C_USERS).document(uid).getDocument { snapshot, error in
             if let err = error {

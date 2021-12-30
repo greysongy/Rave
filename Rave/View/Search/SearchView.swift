@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct SearchView: View {
-    let array = ["Peter", "Paul", "Mary", "Anna-Lena", "George", "John", "Greg", "Thomas", "Robert", "Bernie", "Mike", "Benno", "Hugo", "Miles", "Michael", "Mikel", "Tim", "Tom", "Lottie", "Lorrie", "Barbara"]
+    @State private var users: [User] = []
     @State private var searchText = ""
     @State private var showCancelButton: Bool = false
+    
+   
 
     var body: some View {
 
@@ -40,6 +42,7 @@ struct SearchView: View {
 
                     if showCancelButton  {
                         Button("Cancel") {
+//                            UserManager().fetchAllUsers()
                                 UIApplication.shared.endEditing(true) // this must be placed before the other commands here
                                 self.searchText = ""
                                 self.showCancelButton = false
@@ -52,13 +55,28 @@ struct SearchView: View {
 
                 List {
                     // Filtered list of names
-                    ForEach(array.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
-                        searchText in Text(searchText)
+//                    ForEach(array.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
+//                        searchText in Text(searchText)
+//                    }
+                    ForEach(users.filter{$0.name.contains(searchText) || searchText == ""}, id: \.self) {
+                        user in Text("\(user.name)")
                     }
+                    
+                    
                 }
                 .navigationBarTitle(Text("Discover Friends"))
                 .resignKeyboardOnDragGesture()
             }
+        }
+        .onAppear {
+                UserManager().fetchAllUsers() { result in
+                        switch result {
+                        case .success(let dbUsers):
+                            users = dbUsers
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
         }
     }
 }
