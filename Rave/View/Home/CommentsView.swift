@@ -28,12 +28,12 @@ struct CommentsView: View {
     var body: some View {
         VStack {
             ShortPostView(post: post)
-            ScrollView {
-                ForEach(commentsManager.comments) { comment in
-                    CommentCellView(comment: comment)
-                        .padding(.horizontal, 8)
-                }
-            }
+//            ScrollView {
+//                ForEach(commentsManager.comments) { comment in
+//                    CommentCellView(comment: comment)
+//                        .padding(.horizontal, 8)
+//                }
+//            }
             
             
             HStack {

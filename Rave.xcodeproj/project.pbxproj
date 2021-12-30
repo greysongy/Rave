@@ -72,6 +72,8 @@
 		CBF9096226B8462D008CB4F5 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9096126B8462D008CB4F5 /* Report.swift */; };
 		CBF9096426B84651008CB4F5 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9096326B84651008CB4F5 /* ReportManager.swift */; };
 		CBF9096626B8514C008CB4F5 /* SinglePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9096526B8514C008CB4F5 /* SinglePostView.swift */; };
+		E761009E277E3B8100BABA5E /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E761009D277E3B8100BABA5E /* ReportManager.swift */; };
+		E76100A0277E3B9100BABA5E /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E761009F277E3B9100BABA5E /* CommentCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +137,8 @@
 		CBF9096126B8462D008CB4F5 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		CBF9096326B84651008CB4F5 /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
 		CBF9096526B8514C008CB4F5 /* SinglePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostView.swift; sourceTree = "<group>"; };
+		E761009D277E3B8100BABA5E /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
+		E761009F277E3B9100BABA5E /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +273,7 @@
 				CBF9094526AF3A38008CB4F5 /* CommentsManager.swift */,
 				CBF9094D26AF47BA008CB4F5 /* NotificationsManager.swift */,
 				CBF9096326B84651008CB4F5 /* ReportManager.swift */,
+				E761009D277E3B8100BABA5E /* ReportManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				CBF9094726AF3BE8008CB4F5 /* CommentCellView.swift */,
 				CBF9096526B8514C008CB4F5 /* SinglePostView.swift */,
 				CB2D346B2731C9830046E196 /* RatingSlider.swift */,
+				E761009F277E3B9100BABA5E /* CommentCellView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 				CB96F19B267BBBCE00B001FF /* AppDelegate.swift in Sources */,
 				CB96F1C5267BE11F00B001FF /* ProfileView.swift in Sources */,
 				CB96F19D267BBBCE00B001FF /* SceneDelegate.swift in Sources */,
+				E76100A0277E3B9100BABA5E /* CommentCellView.swift in Sources */,
 				CBF9094026AF1D0D008CB4F5 /* Comment.swift in Sources */,
 				CBF9095726B1BAB2008CB4F5 /* SelectRatingSlider.swift in Sources */,
 				CBF9094826AF3BE8008CB4F5 /* CommentCellView.swift in Sources */,
@@ -483,6 +490,7 @@
 				CBF9095E26B83FF4008CB4F5 /* FollowingView.swift in Sources */,
 				CBF9094226AF1DA4008CB4F5 /* CommentsView.swift in Sources */,
 				CB2D346C2731C9830046E196 /* RatingSlider.swift in Sources */,
+				E761009E277E3B8100BABA5E /* ReportManager.swift in Sources */,
 				CBF9096226B8462D008CB4F5 /* Report.swift in Sources */,
 				CB96F1C3267BE11400B001FF /* NotificationsView.swift in Sources */,
 				CBF9095C26B83E8F008CB4F5 /* FollowersView.swift in Sources */,

@@ -80,7 +80,7 @@ struct ReportView: View {
     func saveReport() {
         if !selectedReasons.isEmpty {
             let report = Report(reportUser: user?.id, submitter: session.user.id, reasons: selectedReasons, date: Date())
-            ReportManager().saveReport(report: report)
+//            ReportManager().saveReport(report: report)
             showAlert.toggle()
         }
     }

@@ -25,9 +25,9 @@ struct SinglePostView: View {
             else {
                 Text(post?.id ?? "")
             }
-            List(commentsManager.comments) { comment in
-                CommentCellView(comment: comment)
-            }
+//            List(commentsManager.comments) { comment in
+//                CommentCellView(comment: comment)
+//            }
             Spacer()
         }
         .onAppear(perform: {
