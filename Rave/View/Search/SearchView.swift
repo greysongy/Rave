@@ -94,7 +94,7 @@ struct SearchView: View {
     }
     
     func actionSheet() {
-            guard let urlShare = URL(string: "https://developer.apple.com/xcode/swiftui/") else { return }
+            guard let urlShare = URL(string: "https://raveapp.page.link") else { return }
             let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
             UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
     }

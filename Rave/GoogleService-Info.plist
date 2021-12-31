@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>951893977609-ma6a48qcj8v2vlssnj8rt2uj3jd6un42.apps.googleusercontent.com</string>
+	<string>951893977609-g4msupuft69qps1c62cjahktf85dbbo1.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.951893977609-ma6a48qcj8v2vlssnj8rt2uj3jd6un42</string>
+	<string>com.googleusercontent.apps.951893977609-g4msupuft69qps1c62cjahktf85dbbo1</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDYrLkYzQqSg0UfohZPBb8xtBV8DunRrYk</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.raveapp.Rave</string>
+	<string>com.raveapp.Raveapp</string>
 	<key>PROJECT_ID</key>
 	<string>rave-review-app</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:951893977609:ios:43c49e836e8314463566d8</string>
+	<string>1:951893977609:ios:e65e48ce91d65f8a3566d8</string>
 </dict>
 </plist>
