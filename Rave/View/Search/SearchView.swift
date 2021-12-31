@@ -11,6 +11,7 @@ struct SearchView: View {
     @State private var users: [User] = []
     @State private var searchText = ""
     @State private var showCancelButton: Bool = false
+    @State private var shareControllerPresented: Bool = false
     
    
 
@@ -19,6 +20,18 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 // Search view
+                Button(action: {
+                    print("Share button clicked")
+                    actionSheet()
+                })
+                {
+                    Text("Invite a Contact")
+                        .padding(10)
+                        .background(Color("BlueMedium"))
+                        .foregroundColor(.white)
+                        .cornerRadius(25)
+                }
+                
                 HStack {
                     HStack {
                         Image(systemName: "magnifyingglass")
@@ -58,13 +71,13 @@ struct SearchView: View {
 //                    ForEach(array.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
 //                        searchText in Text(searchText)
 //                    }
-                    ForEach(users.filter{$0.name.contains(searchText) || searchText == ""}, id: \.self) {
-                        user in Text("\(user.name)")
+                    ForEach(users.filter{$0.name.contains(searchText) || searchText == ""}, id: \.self) {user in
+                        UserRow(username: user.name)
                     }
                     
                     
                 }
-                .navigationBarTitle(Text("Discover Friends"))
+                .navigationBarTitle(Text("Discover Friends"), displayMode: .inline)
                 .resignKeyboardOnDragGesture()
             }
         }
@@ -79,8 +92,36 @@ struct SearchView: View {
                     }
         }
     }
+    
+    func actionSheet() {
+            guard let urlShare = URL(string: "https://developer.apple.com/xcode/swiftui/") else { return }
+            let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+            UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+    }
+    
 }
 
+
+struct UserRow: View {
+    var username: String
+    
+    var body: some View {
+        HStack {
+            Text(username)
+            Spacer()
+            Button(action: {
+                print("Follow this user ...")
+            })
+            {
+                Text("Follow")
+                    .padding(10)
+                    .background(Color("BlueMedium"))
+                    .foregroundColor(.white)
+                    .cornerRadius(25)
+            }
+        }
+    }
+}
 
 
 struct SearchView_Previews: PreviewProvider {
