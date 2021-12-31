@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
+    @EnvironmentObject var session: SessionManager
     @State private var users: [User] = []
     @State private var searchText = ""
     @State private var showCancelButton: Bool = false
@@ -72,7 +73,7 @@ struct SearchView: View {
 //                        searchText in Text(searchText)
 //                    }
                     ForEach(users.filter{$0.name.contains(searchText) || searchText == ""}, id: \.self) {user in
-                        UserRow(username: user.name)
+                        UserRow(username: user.name, currentUserId: session.uid, rowUserId: user.id)
                     }
                     
                     
@@ -104,15 +105,25 @@ struct SearchView: View {
 
 struct UserRow: View {
     var username: String
+    var currentUserId: String
+    var rowUserId: String
     
     var body: some View {
         HStack {
             Text(username)
             Spacer()
             Button(action: {
-                print("Follow this user ...")
+                print("I am user \(currentUserId) and I am about to follow \(rowUserId)")
+                if (currentUserId != rowUserId) {
+                    UserManager().addFollower(followingId: rowUserId, followerId: currentUserId)
+                }
             })
             {
+                /* To add a follower, we need the user ID of both parties. We could easily pass down the user id of this person, but how do we get the higher level user id. Needs to be passed when we create this search tab.
+                    maybe through the session manager/uid?
+                 
+                    
+                 */
                 Text("Follow")
                     .padding(10)
                     .background(Color("BlueMedium"))
