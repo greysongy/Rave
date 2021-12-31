@@ -30,7 +30,6 @@ struct SearchView: View {
                         .padding(10)
                         .background(Color("BlueMedium"))
                         .foregroundColor(.white)
-                        .cornerRadius(25)
                 }
                 
                 HStack {
@@ -73,7 +72,7 @@ struct SearchView: View {
 //                        searchText in Text(searchText)
 //                    }
                     ForEach(users.filter{$0.name.contains(searchText) || searchText == ""}, id: \.self) {user in
-                        UserRow(username: user.name, currentUserId: session.uid, rowUserId: user.id)
+                        UserRow(username: user.name, rowUserId: user.id)
                     }
                     
                     
@@ -102,35 +101,71 @@ struct SearchView: View {
     
 }
 
-
+//TODO: Should probably refactor this into being identical with the likedcellview for following and followers
 struct UserRow: View {
     var username: String
-    var currentUserId: String
+    @EnvironmentObject var session: SessionManager
+//    var currentUserId: String
     var rowUserId: String
     
     var body: some View {
         HStack {
             Text(username)
             Spacer()
+//            Button(action: {
+//                print("I am user \(currentUserId) and I am about to follow \(rowUserId)")
+//                if (currentUserId != rowUserId) {
+//                    UserManager().addFollower(followingId: rowUserId, followerId: currentUserId)
+//                }
+//            })
+//            {
+//                /* To add a follower, we need the user ID of both parties. We could easily pass down the user id of this person, but how do we get the higher level user id. Needs to be passed when we create this search tab.
+//                    maybe through the session manager/uid?
+//
+//                    Style of following button
+//                 */
+//                Text("Follow")
+//                    .padding(10)
+//                    .background(Color("BlueMedium"))
+//                    .foregroundColor(.white)
+//                    .cornerRadius(25)
+//            }
             Button(action: {
-                print("I am user \(currentUserId) and I am about to follow \(rowUserId)")
-                if (currentUserId != rowUserId) {
-                    UserManager().addFollower(followingId: rowUserId, followerId: currentUserId)
-                }
+                updateFollowingStatus()
+            }, label: {
+                Text(isFollowing() ? "Following" : "Follow")
+                    .font(.footnote)
+                    .foregroundColor(isFollowing() ? .black : .white)
+                    .frame(width: 100, height: 36, alignment: .center)
+                    .background(isFollowing() ? Color.white : Color("BlueMedium"))
+                    .border(Color.blue, width: 1)
+                    .padding(.trailing, 12)
             })
-            {
-                /* To add a follower, we need the user ID of both parties. We could easily pass down the user id of this person, but how do we get the higher level user id. Needs to be passed when we create this search tab.
-                    maybe through the session manager/uid?
-                 
-                    
-                 */
-                Text("Follow")
-                    .padding(10)
-                    .background(Color("BlueMedium"))
-                    .foregroundColor(.white)
-                    .cornerRadius(25)
-            }
         }
+    }
+    
+    func isFollowing() -> Bool {
+        guard let following = session.user.following else {return false}
+        return following.contains(rowUserId)
+    }
+    
+    func updateFollowingStatus() {
+        let userManager = UserManager()
+        let followerId = session.user.id
+        if isFollowing() {
+            userManager.removeFollower(followingId: rowUserId, followerId: followerId)
+        }
+        else {
+            userManager.addFollower(followingId: rowUserId, followerId: followerId)
+            saveNotification()
+        }
+    }
+    
+    func saveNotification() {
+        let uid = session.uid
+        let notification = AppNotification(type: NotificationType.Follow.rawValue, submittedBy: session.user.id, date: Date(), submitterName: session.user.name)
+        NotificationsManager().saveNotification(uid: uid, notification: notification)
+        
     }
 }
 
