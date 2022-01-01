@@ -25,7 +25,7 @@
 			<string>Bundle ID</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.raveapp.Raveapp</string>
+				<string>com.raveapp.Rave</string>
 			</array>
 		</dict>
 	</array>
