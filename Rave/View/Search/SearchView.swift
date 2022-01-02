@@ -71,7 +71,7 @@ struct SearchView: View {
 //                    ForEach(array.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
 //                        searchText in Text(searchText)
 //                    }
-                    ForEach(users.filter{$0.name.contains(searchText) || searchText == ""}, id: \.self) {user in
+                    ForEach(users.filter{$0.name.contains(searchText) || $0.username.contains(searchText) || searchText == ""}, id: \.self) {user in
                         UserRow(username: user.name, rowUserId: user.id)
                     }
                     
@@ -94,7 +94,7 @@ struct SearchView: View {
     }
     
     func actionSheet() {
-            guard let urlShare = URL(string: "https://raveapp.page.link") else { return }
+            guard let urlShare = URL(string: "https://raveapp.page.link/inviteFriend") else { return }
             let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
             UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
     }
